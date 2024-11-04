@@ -1,0 +1,16 @@
+fileFormatVersion: 2
+guid: f0c347f2dc6c6144dafdc6f8444ec079
+MonoImporter:
+  externalObjects: {}
+  serializedVersion: 2
+  defaultReferences:
+  - _backgroundMusic: {fileID: 8300000, guid: 303d533721c0d9c4fac6dbf0c004d94b, type: 3}
+  - _jumpSound: {fileID: 8300000, guid: c59ac92845d4b0a42a07e3dc08b1d173, type: 3}
+  - _itemCollectSound: {fileID: 8300000, guid: 55ec93d1559d54f41ae7df03dfe79f1c, type: 3}
+  - _loseSound: {fileID: 8300000, guid: ece5a48f47ecfa046b480af865ef3702, type: 3}
+  - _winSound: {fileID: 8300000, guid: 657fe9d007611284f8268e0877add301, type: 3}
+  executionOrder: 0
+  icon: {instanceID: 0}
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

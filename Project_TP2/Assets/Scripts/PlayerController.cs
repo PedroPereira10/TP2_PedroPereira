@@ -37,6 +37,7 @@ public class PlayerController : MonoBehaviour
         if (_isGrounded && Input.GetKeyDown(KeyCode.Space) && !isBouncing)
         {
             _rb.AddForce(Vector2.up * _jumpForce, ForceMode2D.Impulse);
+            AudioManager.Instance.PlayJumpSound();
         }
 
         float horizontalInput = Input.GetAxis("Horizontal");

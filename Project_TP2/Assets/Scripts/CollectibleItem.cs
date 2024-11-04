@@ -15,13 +15,10 @@ public class CollectibleItem : MonoBehaviour
             if (gameManager != null)
             {
                 gameManager.AddPoints(_points); 
-                gameManager.UpdateItemValue(_points); 
+                gameManager.UpdateItemValue(_points);
+                AudioManager.Instance.PlayItemCollectSound();
 
                 Destroy(gameObject); 
-            }
-            else
-            {
-                Debug.LogError("GameManager not found in the scene!");
             }
         }
     }

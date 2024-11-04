@@ -49,10 +49,6 @@ public class GameManager : MonoBehaviour
         {
             _scoreText.text = "Score: " + score.ToString();
         }
-        else
-        {
-            Debug.LogError("scoreText reference is missing in GameManager!");
-        }
     }
 
     private void UpdateTotalScore()
@@ -61,10 +57,6 @@ public class GameManager : MonoBehaviour
         {
             _totalScoreText.text = "Total Score: " + totalScore.ToString();
         }
-        else
-        {
-            Debug.LogError("totalScoreText reference is missing in GameManager!");
-        }
     }
 
     private void UpdateItemCounter()
@@ -72,11 +64,6 @@ public class GameManager : MonoBehaviour
         if (_itemCounterText != null)
         {
             _itemCounterText.text = "Counter:" + itemCounter.ToString();
-            Debug.Log("Item Counter Updated: " + itemCounter);
-        }
-        else
-        {
-            Debug.LogError("itemCounterText reference is missing in GameManager!");
         }
     }
 
@@ -87,10 +74,6 @@ public class GameManager : MonoBehaviour
         if (_itemValueText != null)
         {
             _itemValueText.text = "Value: " + lastItemValue.ToString();
-        }
-        else
-        {
-            Debug.LogError("itemValueText reference is missing in GameManager!");
         }
     }
 
@@ -125,14 +108,15 @@ public class GameManager : MonoBehaviour
         SavePlayerScore();
         _gameOverScreen.SetActive(true);
         Time.timeScale = 0;
-        // Destroy(gameObject);
+        AudioManager.Instance.PlayLoseSound();
     }
 
     public void Victory()
     {
         SavePlayerScore();
         _victoryScreen.SetActive(true);
-        Time.timeScale = 1;
+        Time.timeScale = 0;
+        AudioManager.Instance.PlayWinSound();
     }
 
     private List<PlayerScore> LoadPlayerScores()
@@ -144,7 +128,14 @@ public class GameManager : MonoBehaviour
 
     public void LoadMainMenu()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene("Menu", LoadSceneMode.Single);
+    }
+
+    public void LoadResult()
+    {
+        Time.timeScale = 1;
+        SceneManager.LoadScene("Results", LoadSceneMode.Single);
     }
 }
 

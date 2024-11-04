@@ -7,12 +7,10 @@ public class MenuManager : MonoBehaviour
 {
     [SerializeField] private InputField _nameInputField;
     [SerializeField] private Button _playButton;
-    [SerializeField] private Text leaderboardText; 
 
     private void Start()
     {
         _playButton.onClick.AddListener(StartGame);
-        DisplayLeaderboard();
     }
 
     public void StartGame()
@@ -27,17 +25,6 @@ public class MenuManager : MonoBehaviour
         else
         {
             Debug.Log("Please, enter a name to start.");
-        }
-    }
-
-    private void DisplayLeaderboard()
-    {
-        leaderboardText.text = "Leaderboard:\n";
-
-        List<PlayerScore> playerScores = LoadPlayerScores();
-        foreach (PlayerScore score in playerScores)
-        {
-            leaderboardText.text += $"{score.playerName}: {score.playerScore}\n";
         }
     }
 

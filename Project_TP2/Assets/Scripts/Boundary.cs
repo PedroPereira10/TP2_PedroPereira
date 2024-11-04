@@ -12,7 +12,6 @@ public class Boundary : MonoBehaviour
         if (collision.gameObject == _playerObject) 
         {
             _gameManager.GameOver();
-            
         }
     }
 }
