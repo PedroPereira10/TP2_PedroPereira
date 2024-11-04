@@ -14,8 +14,9 @@ public class SceneTransition : MonoBehaviour
     {
         if (_fadeImage != null)
         {
-            _fadeImage.color = new Color(0, 0, 0, 0);
+            _fadeImage.color = new Color(0, 0, 0, 1);
             _fadeImage.gameObject.SetActive(false);
+            StartCoroutine(FadeOut());
         }
     }
 
@@ -24,7 +25,7 @@ public class SceneTransition : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             _isPlayerOnPlatform = true;
-            StartCoroutine(FadeAndLoadScene());
+            StartCoroutine(FadeInAndLoadScene());
         }
     }
 
@@ -33,30 +34,28 @@ public class SceneTransition : MonoBehaviour
         if (collision.gameObject.GetComponent<PlayerController>() != null)
         {
             _isPlayerOnPlatform = false;
-            StopCoroutine(FadeAndLoadScene());
+            StopCoroutine(FadeInAndLoadScene());
             ResetFade();
         }
     }
 
-    private IEnumerator FadeAndLoadScene()
+    private IEnumerator FadeInAndLoadScene()
     {
         if (_fadeImage != null)
         {
             _fadeImage.gameObject.SetActive(true);
 
-            // Optional delay before starting the fade
             yield return new WaitForSeconds(0.5f);
 
             if (_isPlayerOnPlatform)
             {
                 float elapsed = 0f;
 
-                // Fade out to black
                 while (elapsed < _fadeDuration)
                 {
                     elapsed += Time.deltaTime;
                     float alpha = Mathf.Clamp01(elapsed / _fadeDuration);
-                    _fadeImage.color = new Color(0, 0, 0, alpha); // Fade to black
+                    _fadeImage.color = new Color(0, 0, 0, alpha); 
                     yield return null;
                 }
 
@@ -64,6 +63,28 @@ public class SceneTransition : MonoBehaviour
             }
         }
     }
+
+    private IEnumerator FadeOut()
+    {
+        if (_fadeImage != null)
+        {
+            _fadeImage.gameObject.SetActive(true);
+            float elapsed = 0f;
+
+            _fadeImage.color = new Color(0, 0, 0, 1);
+
+            while (elapsed < _fadeDuration)
+            {
+                elapsed += Time.deltaTime;
+                float alpha = Mathf.Lerp(1, 0, elapsed / _fadeDuration); 
+                _fadeImage.color = new Color(0, 0, 0, alpha);
+                yield return null;
+            }
+
+            _fadeImage.gameObject.SetActive(false);
+        }
+    }
+
 
     private void ResetFade()
     {

@@ -125,6 +125,7 @@ public class GameManager : MonoBehaviour
         SavePlayerScore();
         _gameOverScreen.SetActive(true);
         Time.timeScale = 0;
+        // Destroy(gameObject);
     }
 
     public void Victory()
