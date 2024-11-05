@@ -5393,12 +5393,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 1
-  m_Sprite: {fileID: -1812197008, guid: 740d70fe9499cb2458ee3169c68567c4, type: 3}
+  m_Sprite: {fileID: 1262333431, guid: e85805481041f1b4c986384b0109faff, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 0.29, y: 0.29}
+  m_Size: {x: 0.29, y: 0.28}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -7762,7 +7762,7 @@ MonoBehaviour:
     m_Bits: 1
   _jumpForce: 9.5
   _moveSpeed: 5
-  bounceForce: 10
+  bounceForce: 20
   bounceDuration: 0.5
   isBouncing: 0
   originalGravityScale: 0
@@ -8248,7 +8248,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 344eefb7f73d18b409cecc7253d118cf, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _playerObject: {fileID: 0}
+  _playerObject: {fileID: 1520590865}
   _gameManager: {fileID: 2097883118}
 --- !u!61 &1662890987
 BoxCollider2D:
@@ -10794,7 +10794,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0f0b38fec911fd244a8eee838e28e91a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _player: {fileID: 0}
+  _player: {fileID: 1520590869}
   _constantSpeed: 0.5
   _playerSpeedThreshold: 3
   _followSpeed: 5
